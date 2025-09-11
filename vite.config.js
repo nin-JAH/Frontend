@@ -1,12 +1,9 @@
-// vite.config.js
-import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react';
-import path from 'path';
-import tagger from "@dhiwise/component-tagger";
+import { defineConfig } from 'vite'
+import vue from '@vitejs/plugin-vue'
+import path from 'path'
 
-// https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react(),tagger()],
+  plugins: [vue()],
   build: {
     outDir: "build",
   },
@@ -14,16 +11,15 @@ export default defineConfig({
     alias: {
       '@': path.resolve('./src'),
       '@components': path.resolve('./src/components'),
-      '@pages': path.resolve('./src/pages'),
+      '@views': path.resolve('./src/views'),
       '@assets': path.resolve('./src/assets'),
-      '@constants': path.resolve('./src/constants'),
       '@styles': path.resolve('./src/styles'),
     },
   },
   server: {
-    port: "4028",
+    port: 4028,
     host: "0.0.0.0",
     strictPort: true,
     allowedHosts: ['.amazonaws.com', '.builtwithrocket.new']
   }
-});
+})
